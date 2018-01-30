@@ -47,7 +47,9 @@ public class GroupedListAdapter extends GroupedRecyclerViewAdapter {
 
     @Override
     public int getHeaderLayout(int viewType) {
+
         return R.layout.adapter_header;
+        
     }
 
     @Override
@@ -65,6 +67,7 @@ public class GroupedListAdapter extends GroupedRecyclerViewAdapter {
         GroupEntity entity = mGroups.get(groupPosition);
         holder.setText(R.id.tv_header, entity.getHeader());
 
+
         holder.get(R.id.btn_cs).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,13 +79,13 @@ public class GroupedListAdapter extends GroupedRecyclerViewAdapter {
 
     @Override
     public void onBindFooterViewHolder(BaseViewHolder holder, int groupPosition) {
-        GroupEntity entity = mGroups.get(groupPosition);
+        GroupEntity entity = mGroups.get(groupPosition + 1);
         holder.setText(R.id.tv_footer, entity.getFooter());
     }
 
     @Override
     public void onBindChildViewHolder(BaseViewHolder holder, int groupPosition, int childPosition) {
-        ChildEntity entity = mGroups.get(groupPosition).getChildren().get(childPosition);
+        ChildEntity entity = mGroups.get(groupPosition + 1).getChildren().get(childPosition);
         holder.setText(R.id.tv_child, entity.getChild());
     }
 }

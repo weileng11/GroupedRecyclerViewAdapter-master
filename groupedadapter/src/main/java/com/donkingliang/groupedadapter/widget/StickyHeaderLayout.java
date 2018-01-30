@@ -10,9 +10,11 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 import android.util.SparseArray;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.donkingliang.groupedadapter.adapter.GroupedRecyclerViewAdapter;
 import com.donkingliang.groupedadapter.holder.BaseViewHolder;
@@ -71,11 +73,29 @@ public class StickyHeaderLayout extends FrameLayout {
         if (getChildCount() > 0 || !(child instanceof RecyclerView)) {
             //外界只能向StickyHeaderLayout添加一个RecyclerView,而且只能添加RecyclerView。
             throw new IllegalArgumentException("StickyHeaderLayout can host only one direct child --> RecyclerView");
+//            if(child instanceof RelativeLayout){
+//                addHeadLayout2();
+//            }
         }
         super.addView(child, index, params);
         mRecyclerView = (RecyclerView) child;
         addOnScrollListener();
         addStickyLayout();
+
+    }
+
+    /**
+     * 动态添加head布局
+     */
+    public View addView1(int mxml) {
+        // TODO 动态添加布局(xml方式)
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
+        LayoutInflater inflater3 = LayoutInflater.from(mContext);
+        View view = inflater3.inflate(mxml, null);
+        view.setLayoutParams(lp);
+        return view;
+
     }
 
     /**
@@ -106,6 +126,7 @@ public class StickyHeaderLayout extends FrameLayout {
 
     /**
      * 更新吸顶布局。
+     *
      * @param imperative 是否强制更新。
      */
     private void updateStickyView(boolean imperative) {
@@ -203,13 +224,13 @@ public class StickyHeaderLayout extends FrameLayout {
         }
     }
 
-    private void updateStickyViewDelayed(){
+    private void updateStickyViewDelayed() {
         postDelayed(new Runnable() {
             @Override
             public void run() {
                 updateStickyView(true);
             }
-        },100);
+        }, 100);
     }
 
     /**

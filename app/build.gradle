@@ -23,7 +23,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:26+'
-    //左滑删除
-    compile 'com.yanzhenjie:recyclerview-swipe:1.1.3'
+
     compile project(":groupedadapter")
 }

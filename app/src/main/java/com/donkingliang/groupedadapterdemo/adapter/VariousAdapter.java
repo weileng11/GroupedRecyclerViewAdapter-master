@@ -1,6 +1,7 @@
 package com.donkingliang.groupedadapterdemo.adapter;
 
 import android.content.Context;
+import android.view.View;
 
 import com.donkingliang.groupedadapterdemo.R;
 import com.donkingliang.groupedadapterdemo.entity.ChildEntity;
@@ -52,13 +53,13 @@ public class VariousAdapter extends GroupedRecyclerViewAdapter {
 
     @Override
     public boolean hasFooter(int groupPosition) {
-        return true;
+        return false;
     }
 
     @Override
     public int getHeaderLayout(int viewType) {
         if (viewType == TYPE_HEADER_1) {
-            return R.layout.adapter_header;
+            return R.layout.fragment_pinned_head;
         } else {
             return R.layout.adapter_header_2;
         }
@@ -87,7 +88,7 @@ public class VariousAdapter extends GroupedRecyclerViewAdapter {
         GroupEntity entity = mGroups.get(groupPosition);
         int viewType = getHeaderViewType(groupPosition);
         if (viewType == TYPE_HEADER_1) {
-            holder.setText(R.id.tv_header, "第一种头部：" + entity.getHeader());
+//            holder.setText(R.id.tv_header, "第一种头部：" + entity.getHeader());
         } else if (viewType == TYPE_HEADER_2) {
             holder.setText(R.id.tv_header_2, "第二种头部：" + entity.getHeader());
         }
@@ -98,7 +99,9 @@ public class VariousAdapter extends GroupedRecyclerViewAdapter {
         GroupEntity entity = mGroups.get(groupPosition);
         int viewType = getFooterViewType(groupPosition);
         if (viewType == TYPE_FOOTER_1) {
-            holder.setText(R.id.tv_footer, "第一种尾部：" + entity.getFooter());
+//            holder.setText(R.id.tv_footer, "第一种尾部：" + entity.getFooter());
+            holder.get(R.id.tv_footer).setVisibility(View.GONE);
+            holder.get(R.id.ll_footer).setVisibility(View.GONE);
         } else if (viewType == TYPE_FOOTER_2) {
             holder.setText(R.id.tv_footer_2, "第二种尾部：" + entity.getFooter());
         }
@@ -110,6 +113,7 @@ public class VariousAdapter extends GroupedRecyclerViewAdapter {
         int viewType = getChildViewType(groupPosition, childPosition);
         if (viewType == TYPE_CHILD_1) {
             holder.setText(R.id.tv_child, "第一种子项：" + entity.getChild());
+            holder.get(R.id.tv_child).setVisibility(View.GONE);
         } else if (viewType == TYPE_CHILD_2) {
             holder.setText(R.id.tv_child_2, "第二种子项：" + entity.getChild());
         }
@@ -117,7 +121,7 @@ public class VariousAdapter extends GroupedRecyclerViewAdapter {
 
     @Override
     public int getHeaderViewType(int groupPosition) {
-        if (groupPosition % 2 == 0) {
+        if (groupPosition== 0) {
             return TYPE_HEADER_1;
         } else {
             return TYPE_HEADER_2;
@@ -126,7 +130,7 @@ public class VariousAdapter extends GroupedRecyclerViewAdapter {
 
     @Override
     public int getFooterViewType(int groupPosition) {
-        if (groupPosition % 2 == 0) {
+        if (groupPosition == 0) {
             return TYPE_FOOTER_1;
         } else {
             return TYPE_FOOTER_2;
@@ -135,7 +139,7 @@ public class VariousAdapter extends GroupedRecyclerViewAdapter {
 
     @Override
     public int getChildViewType(int groupPosition, int childPosition) {
-        if (groupPosition % 2 == 0) {
+        if (groupPosition== 0) {
             return TYPE_CHILD_1;
         } else {
             return TYPE_CHILD_2;

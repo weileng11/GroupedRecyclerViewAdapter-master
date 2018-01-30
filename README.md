@@ -1,5 +1,7 @@
 # GroupedRecyclerViewAdapter
 
+原文地址:https://github.com/donkingliang/GroupedRecyclerViewAdapter
+
 GroupedRecyclerViewAdapter可以很方便的实现RecyclerView的分组显示，并且每个组都可以包含组头、组尾和子项；可以方便实现多种Type类型的列表，可以实现如QQ联系人的列表一样的列表展开收起功能，还可以实现头部悬浮吸顶功能等。下面先让我们看一下它所能够实现的一些效果：
 
 ![分组的列表](http://img.blog.csdn.net/20170323195156026?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDE3NzAyMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)   ![不带组尾的列表](http://img.blog.csdn.net/20170323195228745?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDE3NzAyMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)  ![不带组头的列表](http://img.blog.csdn.net/20170323195318281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDE3NzAyMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast) 

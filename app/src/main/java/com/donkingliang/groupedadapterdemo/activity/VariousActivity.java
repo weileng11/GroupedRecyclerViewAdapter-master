@@ -35,7 +35,7 @@ public class VariousActivity extends AppCompatActivity {
         tvTitle.setText(R.string.various);
 
         rvList.setLayoutManager(new LinearLayoutManager(this));
-        VariousAdapter adapter = new VariousAdapter(this, GroupModel.getGroups(10, 5));
+        VariousAdapter adapter = new VariousAdapter(this, GroupModel.getGroups(10, 2));
         adapter.setOnHeaderClickListener(new GroupedRecyclerViewAdapter.OnHeaderClickListener() {
             @Override
             public void onHeaderClick(GroupedRecyclerViewAdapter adapter, BaseViewHolder holder,

@@ -35,6 +35,9 @@ public class StickyActivity extends AppCompatActivity {
         tvTitle = (TextView) findViewById(R.id.tv_title);
         rvList = (RecyclerView) findViewById(R.id.rv_list);
         stickyLayout = (StickyHeaderLayout) findViewById(R.id.sticky_layout);
+//        stickyLayout.setSticky(false);
+//        stickyLayout.addView1(R.layout.adapter_footer);
+
 
         tvTitle.setText(R.string.sticky_list);
 
